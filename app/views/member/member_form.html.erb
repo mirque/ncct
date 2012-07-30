@@ -1,3 +1,8 @@
+<p>TODO</p>
+<ul>
+	<li>More fields - note some fields currently in spreadsheet might be virtual based on payments, e.g. last payment date</li>
+</ul>
+
 <% if @errormsg %>
 	<p class='errormsg'><%= @errormsg %></p>
 <% end %>
@@ -8,13 +13,48 @@
 			<td><%= f.label "First Name: " %></td>
 			<td><%= f.text_field :firstname %></td>
 		</tr>
+		
+		<tr>
 			<td><%= f.label "Last Name: " %></td>
 			<td><%= f.text_field :lastname %></td>
 		</tr>
+		
+		<tr>
 			<td><%= f.label "Expiration Date: " %></td>
 			<td><%= f.text_field :expiration_date %></td>
 		</tr>
-	
+		
+		<tr>
+			<td><%= f.label "Address line 1: " %></td>
+			<td><%= f.text_field :address1 %></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label "City: " %></td>
+			<td><%= f.text_field :city %></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label "State: " %></td>
+			<td><%= f.text_field :state %></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label "Postal Code: " %></td>
+			<td><%= f.text_field :postal %></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label "Email address: " %></td>
+			<td><%= f.text_field :email %></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label "Email name: " %></td>
+			<td><%= f.text_field :email_name %></td>
+		</tr>
+		
+		<br>
 		<tr><td><%= f.submit "Save" %></td></tr>
 	<% end %>
 </table>
