@@ -1,58 +1,44 @@
 Ncct::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
 
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
+	get "payment/add"
 
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
+	get "payment/create"
 
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+	get "payment/edit"
 
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+	get "payment/update"
 
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+	get "payment/delete"
 
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
+	get "member/index"
 
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+	# login
+	root :to => 'home#login'
+	
+	# Home page once logged in
+	get 'home' => 'home#home', :as => 'home'
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+	# Index page of NCCT member list
+	get 'member/index' => 'member#index', :as => 'member'
+	
+	# add a new member
+	get 'member/add' => 'member#add', :as => 'member_add'
+	post 'member/create' => 'member#create', :as => 'member_create'
+	
+	# edit an existing member
+	get 'member/edit/:id' => 'member#edit', :as => 'member_edit'
+	put 'member/update/:id' => 'member#update', :as => 'member_update'
+	
+	# Index page of payments list
+	get 'member/:id/payments' => 'payment#index', :as => 'payments'
+	
+	# add a new payment
+	get 'member/:id/payment/add' => 'payment#add', :as => 'payment_add'
+	post 'member/:id/payment/create' => 'payment#create', :as => 'payment_create'
+	
+	# edit a payment
+	get 'member/:id/payment/edit' => 'payment#edit', :as => 'payment_edit'
+	put 'member/:id/payment/:pay_id/update' => 'payment#update', :as => 'payment_update'
+	
+	
 end

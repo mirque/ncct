@@ -11,6 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120729213801) do
+
+  create_table "members", :force => true do |t|
+    t.string   "lastname"
+    t.string   "firstname"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postal"
+    t.string   "email"
+    t.string   "email_name"
+    t.string   "expiration_date"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "payments", :force => true do |t|
+    t.date     "payment_date"
+    t.date     "renewal_date"
+    t.string   "member_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "member_id"
+  end
 
 end

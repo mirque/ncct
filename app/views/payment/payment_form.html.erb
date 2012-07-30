@@ -1,0 +1,22 @@
+<h1>Create Payment For <%=" #{@member.firstname} #{@member.lastname}" %></h1>
+
+<% if @errormsg %>
+	<p class='errormsg'><%= @errormsg %></p>
+<% end %>
+
+<table class='invis_border'>
+	<%= form_for @payment, :url => @url do |f| %>
+		<tr>
+			<td><%= f.label "Payment Date: " %></td>
+			<td><%= f.text_field :payment_date %></td>
+		</tr>
+			<td><%= f.label "Renewal Date: " %></td>
+			<td><%= f.text_field :renewal_date %></td>
+		</tr>
+			<td><%= f.label "Member Type: " %></td>
+			<td><%= f.text_field :member_type %></td>
+		</tr>
+				
+		<tr><td><%= f.submit "Save" %></td></tr>
+	<% end %>
+</table>

@@ -1,0 +1,18 @@
+<h1>Log In to NCCT</h1>
+<br>
+
+<table class='invis_border'>
+	<%= form_tag(home_path, :method => "get") do %>
+		<tr>
+			<td><%= label_tag(:name, "User name:") %></td>
+			<td class='login_data_cell'><%= text_field_tag(:name) %></td>
+		</tr>
+		<tr>
+			<td><%= label_tag(:password, "Password:") %></td>
+			<td class='login_data_cell'><%= text_field_tag(:password) %></td>
+		</tr>
+		<tr>
+			<td><%= submit_tag("Log In") %></td>
+		</tr>
+	<% end %>
+</table>

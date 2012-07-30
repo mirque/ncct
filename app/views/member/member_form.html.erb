@@ -1,0 +1,20 @@
+<% if @errormsg %>
+	<p class='errormsg'><%= @errormsg %></p>
+<% end %>
+
+<table class='invis_border'>
+	<%= form_for @member, :url => @url do |f| %>
+		<tr>
+			<td><%= f.label "First Name: " %></td>
+			<td><%= f.text_field :firstname %></td>
+		</tr>
+			<td><%= f.label "Last Name: " %></td>
+			<td><%= f.text_field :lastname %></td>
+		</tr>
+			<td><%= f.label "Expiration Date: " %></td>
+			<td><%= f.text_field :expiration_date %></td>
+		</tr>
+	
+		<tr><td><%= f.submit "Save" %></td></tr>
+	<% end %>
+</table>

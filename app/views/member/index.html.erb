@@ -1,0 +1,26 @@
+<h1>Members</h1>
+
+<%= link_to 'Add Member', member_add_path %>
+
+<br><br>
+
+<table id='members' class='visible_border'>
+	<tr>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Expiration</th>
+		<th></th>
+		<th></th>
+	</tr>
+	
+	<% bandcolor = false %>
+	<% @members.each do |member| %>
+		<tr class='visible_border <%= (bandcolor=!bandcolor) ? "bandcolor" : "" %>' >
+			<td><%= member.firstname %></td>
+			<td><%= member.lastname %></td>
+			<td><%= member.expiration_date %></td>
+			<td><%= link_to 'Edit', member_edit_path(member.id) %></td>
+			<td><%= link_to 'Payments', payments_path(member.id) %></td>
+		</tr>
+	<% end %>
+</table>

@@ -1,0 +1,24 @@
+<h1>Payments for <%=" #{@member.firstname} #{@member.lastname}" %></h1>
+
+<%= link_to 'Add Payment', payment_add_path(@member.id) %>
+
+<br><br>
+
+<table id='payments' class='visible_border'>
+	<tr>
+		<th>Payment Date</th>
+		<th>Expiration Date</th>
+		<th>Member Type</th>
+		<th></th>
+	</tr>
+	
+	<% bandcolor = false %>
+	<% @payments.each do |payment| %>
+		<tr class='visible_border <%= (bandcolor=!bandcolor) ? "bandcolor" : "" %>' >
+			<td><%= payment.payment_date %></td>
+			<td><%= payment.renewal_date %></td>
+			<td><%= payment.member_type %></td>
+			<td><%= link_to 'Edit', payment_edit_path(@member.id, payment.id) %></td>
+		</tr>
+	<% end %>
+</table>
