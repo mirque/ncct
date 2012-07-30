@@ -17,7 +17,9 @@ class MemberController < ApplicationController
 		@member = Member.new(params[:member])
 		@member.save!
 		redirect_to member_index_path
-	rescue
+	rescue Exception => e
+		@errormsg = e.message		
+		@url = member_create_path
 		render 'member_form'
 	end
 	
@@ -34,7 +36,6 @@ class MemberController < ApplicationController
 		@member.update_attributes!(params[:member])
 		redirect_to member_index_path
 	rescue Exception => e
-		logger.info ">>>>>>>> member update rescue: #{e.message} <<<<<<<<<"
 		@errormsg = e.message
 		@url = member_update_path(@member.id)
 		render 'member_form'
